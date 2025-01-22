@@ -1,0 +1,386 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Work Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #fff;
+    background-color: #242323;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.navbar .navbar-collapse {
+    display: flex;
+    justify-content: center; /* Center the links */
+    flex-grow: 1; /* Center links between logo and buttons */
+}
+
+.navbar .navbar-collapse ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    gap: 0rem;
+}
+
+.navbar .navbar-collapse ul li a {
+    color: #000000;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navbar .navbar-collapse ul li a:hover {
+    color: #b3e215;
+}
+
+.navbar .d-flex {
+    margin-left: auto;
+    font-weight: 600;
+    gap: 0rem; /* Space between Login and Sign Up buttons */
+}
+
+.navbar .btn-outline-dark:hover,
+.navbar .btn-dark:hover {
+    background-color: #b3e215; /* Override hover color */
+    color: #555555;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 6rem 2rem;
+    background-color: #f6f6f6;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: #555555;
+}
+
+.hero a {
+    margin-right: 1rem;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.hero a.btn-dark {
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #000000;
+}
+
+.hero a.btn-dark:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.hero a.btn-outline-dark {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+}
+
+.hero a.btn-outline-dark:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Features Section */
+.features {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: #ffffff;
+}
+
+.features h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.features p {
+    font-size: 1rem;
+    color: #555555;
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+    transition: transform 0.3s ease;
+}
+
+/* Footer */
+.footer {
+    background-color: #242323;
+    color: #ffffff;
+    padding: 2rem 1rem;
+    border-top: 1px solid #555555;
+    text-align: center;
+}
+
+.footer h5 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.footer a {
+    color: #b3e215;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #ffffff;
+}
+
+.footer ul {
+    padding: 0;
+}
+
+.footer ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer .social-icons a {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #555555;
+    border-radius: 50%;
+    text-align: center;
+    display: inline-block;
+    color: #ffffff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.footer .social-icons a:hover {
+    background-color: #b3e215;
+    color: #000000;
+}
+
+/* Pop-Up */
+body {
+    font-family: 'Work Sans', sans-serif;
+    background-color: #f6f6f6;
+    color: #000;
+}
+
+/* Center content for demo purposes */
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.btn:hover {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Modal customization */
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-content {
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.modal-body a:hover {
+    color: #b3e215;
+    text-decoration: none;
+}
+.social-login {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.social-btn img {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5rem;
+}
+
+.or-text {
+    text-align: center;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+    color: #555;
+    position: relative;
+}
+
+.or-text::before, .or-text::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background-color: #ddd;
+}
+
+.or-text::before {
+    left: 0;
+}
+
+.or-text::after {
+    right: 0;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.modal-footer a {
+    color: #b3e215;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: #000;
+    color: #fff;
+    font-weight: 600;
+    padding: 0.75rem;
+    border: none;
+    width: 100%;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #b3e215;
+    color: #000;
+}
+
+.sign-up {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.sign-up a {
+    color: #b3e215;
+    text-decoration: none;
+}
+
+.sign-up a:hover {
+    text-decoration: underline;
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.modal-footer p {
+    font-size: 0.9rem;
+}
+
+input, textarea, select {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.btn-dark {
+    background-color: #333;
+    border: none;
+}
+
+.btn-dark:hover {
+    background-color: #555;
+}
+
+@media (max-width: 768px) {
+    .navbar .d-flex {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero {
+        padding: 4rem 1rem;
+    }
+}

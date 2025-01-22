@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitem - Lost & Found Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="keep.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js" defer></script>
+    <script rel= "javascript" src="script.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+          <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand fw-bold" href="#home">
+              <img src="/media_assets/mitem-logo1.png" alt="Mitem Logo" style="width: 85px;" loading="lazy">
+            </a>
+            
+            <!-- Toggler for mobile view -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="navbarToggler">
+              <ul class="navbar-nav mb-1 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#using-our-service">Using Our Service</a></li>
+                <li class="nav-item"><a class="nav-link" href="#reward-items">Reward Items</a></li>
+                <li class="nav-item"><a class="nav-link" href="#report-mPeople">mPeople</a></li>
+                <li class="nav-item"><a class="nav-link" data-bs-toggle="modal" data-bs-target="#contactModal" href="#contact">Talk To Us</a></li>
+              </ul>
+            </div>
+
+            <!-- Login and Sign Up Buttons -->
+            <div class="d-flex">
+                <button class="btn btn-dark me-2" style="width: 85px; height: 40px;" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+                <button class="btn btn-dark me-2" style="width: 90px; height: 40px;" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</button>
+            </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+      
+    <!-- Hero Section -->
+    <section class="hero bg-light py-5 border-bottom">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold">Reunite With What You Lost!</h1>
+            <p class="lead mb-4">Your trusted platform for connecting lost and found items effortlessly.</p>
+            <a href=" javascript:void(0) /report-lost.html " class="btn btn-dark btn-lg me-2" onclick="handleReportLostItem()">Report Lost Item</a>
+            <a href="/report-found.html" class="btn btn-outline-dark btn-lg">Report Found Item</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features text-center py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <h2 class="fw-bold">Why Choose Mitem?</h3>
+                    <p>Fast, reliable, and community-driven lost & found service.</p>
+                </div>
+                <div class="col-md-6">
+                    <h2 class="fw-bold">How It Works</h2>
+                    <p>Report items, get matched, and receive updates instantly!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+<footer class="footer bg-dark text-white py-5">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <!-- Logo and Copyright -->
+        <div class="col-md-4 mb-3">
+          <a href="#home" class="nav-link d-block mb-2" aria-label="Go to Home">
+            <img src="/media_assets/mitem-logo.png" alt="Mitem Logo" style="width: 100px;" loading="lazy">
+          </a>
+          <p class="mb-1">&copy; 2025 Mitem | All Rights Reserved</p>
+        </div>
+        
+        <!-- Social Media Links -->
+        <div class="col-md-4 mb-3">
+          <h5>Follow Us</h5>
+          <div class="social-icons d-flex justify-content-center gap-3 mt-3">
+            <a href="#" class="text-white" aria-label="Facebook">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="#" class="text-white" aria-label="WhatsApp">
+              <i class="bi bi-whatsapp"></i>
+            </a>
+            <a href="#" class="text-white" aria-label="Instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="#" class="text-white" aria-label="Twitter">
+              <i class="bi bi-twitter"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Policies -->
+        <div class="col-md-4">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white text-decoration-none">Privacy Policy</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Terms of Use</a></li>
+            <li><a href="/contact.html" class="text-white text-decoration-none">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Check if the user is logged in (replace with actual logic)
+    function isLoggedIn() {
+      // This is a placeholder. Replace with your actual login status check.
+      return localStorage.getItem("isLoggedIn") === "true";
+    }
+  
+    // Redirect to login modal if not logged in
+    function handleReportLostItem() {
+      if (!isLoggedIn()) {
+        // Show the login modal
+        const loginModal = new bootstrap.Modal(document.getElementById("loginModal"));
+        loginModal.show();
+      } else {
+        // Redirect to the "Report Lost Item" page
+        window.location.href = "/report-lost.html";
+      }
+    }
+  </script>  
+
+</body>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="loginModalLabel">Login</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <h2>Welcome Back!</h2>
+              <p>Please enter your registration details to login</p>
+              <!-- Email/Password Login Form -->
+              <form action="/login" method="POST">
+                <div class="mb-3">
+                  <input type="email" id="loginEmail" name="email" class="form-control" placeholder="Email or Username" required>
+                </div>
+                <div class="mb-3">
+                  <input type="password" id="loginPassword" name="password" class="form-control" placeholder="Password" required>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <label>
+                    <input type="checkbox" name="remember-me"> Remember me
+                  </label>
+                  <a href="/forgot-password" class="text-decoration-none">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+              </form>
+            <!--Social Login Option-->
+            <div class="text-center my-3">
+                <p>Or login with</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <!-- Google Sign-Up -->
+                    <button class="btn btn-primary btn-lg me-2" style="width: 300px; height: 50px;" aria-label="Sign Up with Google">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo" style="width: 24px; height: 24px;">
+                    </button>
+                    <!-- Facebook Sign-Up -->
+                    <button class="btn btn-primary btn-lg me-2" style="width: 300px; height: 50px;" aria-label="Sign Up with Facebook">
+                        <i class="bi bi-facebook" style="font-size: 24px;"></i>
+                    </button>
+                    <!-- X Sign-Up -->
+                    <button class="btn btn-primary btn-lg me-2" style="width: 300px; height: 50px;" aria-label="Sign Up with X">
+                        <i class="bi bi-twitter" style="font-size: 24px;"alt="X Logo" style="width: 24px; height: 24px;"></i> 
+                    </button>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <p class="text-center w-100">
+                Don't have an account yet? <a href="#" data-bs-toggle="modal" data-bs-target="#signupModal" data-bs-dismiss="modal">Sign up</a>
+              </p>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    <!-- Sign-Up Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="signupModalLabel">Sign Up</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <h2>Join Mitem!</h2>
+              <p>Create an account to start your journey.</p>
+              <!-- Sign-Up Form -->
+              <form action="/signup" method="POST">
+                  <div class="mb-3">
+                      <input type="text" id="signupName" name="name" class="form-control" placeholder="Username" required>
+                    </div>
+                  <div class="mb-3">
+                      <input type="email" id="signupEmail" name="email" class="form-control" placeholder="Email" required>
+                  </div>
+                  <div class="mb-3">
+                    <div class="input-group">
+                         <!-- Country Code Dropdown -->
+                         <select class="form-select" name="country-code" required>
+                             <option value="+1" selected>+233 (Ghana)</option>
+                              <option value="+44">+1 (US)</option>
+                             <option value="+44">+44 (UK)</option>
+                             <option value="+91">+91 (India)</option>
+                             <option value="+61">+61 (Australia)</option>
+                             <option value="+81">+81 (Japan)</option>
+                            <!-- Add more country codes as needed -->
+                        </select>
+                    <input type="tel" name="phone" class="form-control" placeholder="Phone number" required>
+                        </div>
+                </div>
+                  <div class="mb-3">
+                      <input type="password" id="signupPassword" name="password" class="form-control" placeholder="Create Password" required>
+                  </div>
+                  <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+              </form>
+              <!-- Social Sign-Up Option -->
+              <div class="text-center my-3">
+                  <p>Or sign up with</p>
+                  <div class="d-flex justify-content-center gap-3">
+                      <!-- Google Sign-Up -->
+                      <button class="btn btn-primary btn-lg me-2" style="width: 300px; height: 50px;" aria-label="Sign Up with Google">
+                          <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo" style="width: 24px; height: 24px;">
+                      </button>
+                      <!-- Facebook Sign-Up -->
+                      <button class="btn btn-primary btn-lg me-2" style="width: 300px; height: 50px;" aria-label="Sign Up with Facebook">
+                          <i class="bi bi-facebook" style="font-size: 24px;"></i>
+                      </button>
+                      <!-- X Sign-Up -->
+                      <button class="btn btn-primary btn-lg me-2" style="width: 300px; height: 50px;" aria-label="Sign Up with X">
+                          <i class="bi bi-twitter" style="font-size: 24px;"alt="X Logo" style="width: 24px; height: 24px;"></i> 
+                      </button>
+                  </div>
+              </div><div class="modal-footer">
+                  <p class="text-center w-100">
+                  Already have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">Login</a>
+                  </p>
+              </div>
+             </div>
+          </div>        
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Us Modal -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactModalLabel">Talk to Us</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="modal-body">
+                    <p class="text-muted">We’d love to hear from you! Fill out the form below and we’ll get back to you shortly.</p>
+                    <!-- Contact Form -->
+                    <form action="/contact" method="POST">
+                        <div class="mb-3">
+                            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <div class="input-group">
+                                <!-- Country Code Dropdown -->
+                                <select class="form-select" name="country-code" required>
+                                    <option value="+1" selected>+233 (Ghana)</option>
+                                    <option value="+44">+1 (US)</option>
+                                    <option value="+44">+44 (UK)</option>
+                                    <option value="+91">+91 (India)</option>
+                                    <option value="+61">+61 (Australia)</option>
+                                    <option value="+81">+81 (Japan)</option>
+                                    <!-- Add more country codes as needed -->
+                                </select>
+                                <input type="tel" name="phone" class="form-control" placeholder="Your Phone Number" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <textarea name="message" class="form-control" rows="4" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-dark w-100">Send Message</button>
+                    </form>
+                </div>
+
+                <!-- Modal Footer -->
+                <div class="modal-footer">
+                    <p class="text-center w-100 text-muted mb-0">
+                        You can also reach us at <a href="mailto:support@mitem.com" class="text-dark">support@mitem.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+  </html>
+

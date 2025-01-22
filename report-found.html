@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Found Item - mitem</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="/">mitem</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <h1>Report a Found Item</h1>
+            <form id="found-item-form" action="/submit-found-item" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="user_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="user_email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Contact Number:</label>
+                    <input type="tel" id="phone" name="user_phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="region">Region:</label>
+                    <select id="region" name="item_region" required>
+                        <option value="" disabled selected>Select Region</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="town">Town:</label>
+                    <select id="town" name="item_town" required>
+                        <option value="" disabled selected>Select Town</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category of Item:</label>
+                    <select id="category" name="item_category" required>
+                        <option value="" disabled selected>Select Category</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="specific-item">Specific Item:</label>
+                    <select id="specific-item" name="item_specific" required>
+                        <option value="" disabled selected>Select Specific Item</option>
+                    </select>
+                </div>
+                <div class="form-group" id="other-item-group" style="display: none;">
+                    <label for="other-item">Specify Other Item:</label>
+                    <input type="text" id="other-item" name="other_item" placeholder="Enter item name">
+                </div>
+                <div class="form-group">
+                    <label for="date">Date Found:</label>
+                    <input type="date" id="date" name="item_date" required>
+                </div>
+                <div class="form-group">
+                    <label for="unique-feature">Unique Features:</label>
+                    <textarea id="unique-feature" name="item_features" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="images">Upload Images (Max 2):</label>
+                    <input type="file" id="images" name="item_images" accept="image/*" multiple required>
+                </div>
+                <button type="submit" class="btn-primary">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        // Data: Categories and their respective specific items
+        const itemCategories = {
+            "Electronics": ["Phones", "Laptops", "Tablets", "Cameras", "Headphones"],
+            "Personal Belongings": ["Wallets", "Keys", "Bags", "Jewelry", "Watches"],
+            "Documents": ["ID Cards", "Passports", "Licenses"],
+            "Clothing and Accessories": ["Jackets", "Hats", "Scarves", "Glasses"],
+            "Other": ["Books", "Toys", "Sports Equipment", "Not included"]
+        };
+
+        // Populate Category Dropdown
+        const categoryDropdown = document.getElementById("category");
+        const specificItemDropdown = document.getElementById("specific-item");
+        const otherItemGroup = document.getElementById("other-item-group");
+        const otherItemInput = document.getElementById("other-item");
+
+        Object.keys(itemCategories).forEach(category => {
+            const option = document.createElement("option");
+            option.value = category;
+            option.textContent = category;
+            categoryDropdown.appendChild(option);
+        });
+
+        // Update Specific Item Dropdown based on Selected Category
+        categoryDropdown.addEventListener("change", (e) => {
+            const selectedCategory = e.target.value;
+
+            // Clear Specific Item Dropdown
+            specificItemDropdown.innerHTML = '<option value="" disabled selected>Select Specific Item</option>';
+            otherItemGroup.style.display = "none"; // Hide the "Other Item" input by default
+
+            // Populate Specific Item Dropdown
+            if (itemCategories[selectedCategory]) {
+                itemCategories[selectedCategory].forEach(item => {
+                    const option = document.createElement("option");
+                    option.value = item;
+                    option.textContent = item;
+                    specificItemDropdown.appendChild(option);
+                });
+            }
+        });
+
+        // Show "Specify Other Item" input when "Not included" is selected
+        specificItemDropdown.addEventListener("change", (e) => {
+            const selectedItem = e.target.value;
+
+            if (selectedItem === "Not included") {
+                otherItemGroup.style.display = "block";
+                otherItemInput.required = true;
+            } else {
+                otherItemGroup.style.display = "none";
+                otherItemInput.required = false;
+            }
+        });
+    </script>
+</body>
+
+<script>
+    // Data: Regions and their respective towns
+    const ghanaRegions = {
+        "Greater Accra": ["Accra", "Tema", "Ashaiman", "Madina"],
+        "Ashanti": ["Kumasi", "Obuasi", "Asante Mampong", "Konongo"],
+        "Central": ["Cape Coast", "Winneba", "Elmina", "Mankessim"],
+        "Western": ["Sekondi", "Takoradi", "Tarkwa", "Axim"],
+        "Volta": ["Ho", "Keta", "Aflao", "Hohoe"],
+        "Eastern": ["Koforidua", "Nkawkaw", "Akosombo", "Akim Oda"],
+        "Northern": ["Tamale", "Yendi", "Bimbilla", "Savelugu"],
+        "Upper East": ["Bolgatanga", "Bawku", "Navrongo", "Zuarungu"],
+        "Upper West": ["Wa", "Nandom", "Tumu", "Jirapa"],
+        "Bono": ["Sunyani", "Berekum", "Dormaa Ahenkro", "Techiman"],
+        "Bono East": ["Techiman", "Atebubu", "Kintampo", "Nkoranza"],
+        "Ahafo": ["Goaso", "Bechem", "Duayaw Nkwanta", "Kenyaase"],
+        "Western North": ["Sefwi Wiawso", "Bibiani", "Juaboso", "Enchi"],
+        "North East": ["Nalerigu", "Walewale", "Gambaga", "Chereponi"],
+        "Oti": ["Dambai", "Nkwanta", "Kadjebi", "Jasikan"],
+        "Savannah": ["Damongo", "Bole", "Salaga", "Tuna"]
+    };
+
+    // Populate Region Dropdown
+    const regionDropdown = document.getElementById("region");
+    const townDropdown = document.getElementById("town");
+
+    Object.keys(ghanaRegions).forEach(region => {
+        const option = document.createElement("option");
+        option.value = region;
+        option.textContent = region;
+        regionDropdown.appendChild(option);
+    });
+
+    // Update Town Dropdown based on Selected Region
+    regionDropdown.addEventListener("change", (e) => {
+        const selectedRegion = e.target.value;
+
+        // Clear Town Dropdown
+        townDropdown.innerHTML = '<option value="" disabled selected>Select Town</option>';
+
+        // Populate Town Dropdown
+        if (ghanaRegions[selectedRegion]) {
+            ghanaRegions[selectedRegion].forEach(town => {
+                const option = document.createElement("option");
+                option.value = town;
+                option.textContent = town;
+                townDropdown.appendChild(option);
+            });
+        }
+    });
+</script>
+
+
+</html>

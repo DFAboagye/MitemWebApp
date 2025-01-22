@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitem - Lost & Found Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="keep.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js" defer></script>
+</head>
+<body>
+
+<!-- Talk to Us Section -->
+<section id="contact" class="contact py-5 bg-light">
+    <div class="container">
+        <div class="row text-center mb-4">
+            <div class="col">
+                <h2 class="fw-bold">Get In Touch</h2>
+                <p class="text-muted">Have questions or need help? Reach out to us!</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <!-- Contact Form -->
+            <div class="col-md-6">
+                <h4 class="fw-bold mb-3">Send Us a Message</h4>
+                <form action="/contact" method="POST">
+                    <div class="mb-3">
+                        <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group">
+                             <!-- Country Code Dropdown -->
+                             <select class="form-select" name="country-code" required>
+                                 <option value="+1" selected>+233 (Ghana)</option>
+                                  <option value="+44">+1 (US)</option>
+                                 <option value="+44">+44 (UK)</option>
+                                 <option value="+91">+91 (India)</option>
+                                 <option value="+61">+61 (Australia)</option>
+                                 <option value="+81">+81 (Japan)</option>
+                                <!-- Add more country codes as needed -->
+                            </select>
+                        <input type="tel" name="phone" class="form-control" placeholder="Enter your phone number" required>
+                            </div>
+                    </div>
+                    <div class="mb-3">
+                        <textarea name="message" class="form-control" rows="4" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-dark w-100">Send Message</button>
+                </form>
+            </div>
+            <!-- Contact Information -->
+            <div class="col-md-6">
+                <h4 class="fw-bold mb-3">Contact Information</h4>
+                <p class="mb-2"><i class="bi bi-geo-alt-fill me-2 text-dark"></i>123 Lost & Found Avenue, City, Country</p>
+                <p class="mb-2"><i class="bi bi-telephone-fill me-2 text-dark"></i>+1 234 567 890</p>
+                <p class="mb-2"><i class="bi bi-envelope-fill me-2 text-dark"></i>support@mitem.com</p>
+                <p class="mb-4"><i class="bi bi-clock-fill me-2 text-dark"></i>Mon - Fri: 9:00 AM - 5:00 PM</p>
+                
+                <h5 class="fw-bold">Connect With Us</h5>
+                <div class="social-icons d-flex gap-3">
+                    <a href="#" class="text-dark" aria-label="Facebook">
+                        <i class="bi bi-facebook" style="font-size: 24px;"></i>
+                    </a>
+                    <a href="#" class="text-dark" aria-label="Instagram">
+                        <i class="bi bi-instagram" style="font-size: 24px;"></i>
+                    </a>
+                    <a href="#" class="text-dark" aria-label="Twitter">
+                        <i class="bi bi-twitter" style="font-size: 24px;"></i>
+                    </a>
+                    <a href="#" class="text-dark" aria-label="LinkedIn">
+                        <i class="bi bi-linkedin" style="font-size: 24px;"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
