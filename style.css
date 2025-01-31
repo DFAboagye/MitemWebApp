@@ -84,12 +84,14 @@ ul {
 }
 
 .hero a {
-    margin-right: 1rem;
+    display: inline-block;
+    margin: 1rem 0.5rem;
     padding: 1rem 2rem;
-    border-radius: 4px;
+    border-radius: 5px;
     font-size: 1rem;
     font-weight: 600;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .hero a.btn-dark {
